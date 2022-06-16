@@ -87,9 +87,13 @@ type B = MyRequired<A>;
 }
 
 // ReturnType：提取函数的返回类型
-const fn = (): string[] | string => {
+const fn = (s: string, r: number): string[] | string => {
     return []
 }
 
 type MyReturnType<T> = T extends ((...args: any) => infer U) ? U : any;
 type Res = MyReturnType<typeof fn>;
+
+// Parameters: 提取函数参数的类型
+type MyParameters<T> = T extends (...args: infer U) => any ? U : never;
+type params = MyParameters<typeof fn>
