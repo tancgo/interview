@@ -38,3 +38,15 @@ function move(arr) {
 }
 
 move(arr);
+
+// 更优解法
+var moveZeroes = function (nums) {
+  let left = 0; // 等于0的指针 right为非0的指针
+
+  for (let right = 0; right < nums.length; right++) {
+    if (nums[right] !== 0) {
+      nums[left++] = nums[right];
+      nums[right] = 0;
+    }
+  }
+};
