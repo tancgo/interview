@@ -45,8 +45,11 @@ var moveZeroes = function (nums) {
 
   for (let right = 0; right < nums.length; right++) {
     if (nums[right] !== 0) {
-      nums[left++] = nums[right];
-      nums[right] = 0;
+      if (right > left) {
+        nums[left] = nums[right];
+        nums[right] = 0;
+      }
+      left++;
     }
   }
 };
