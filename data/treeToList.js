@@ -31,11 +31,13 @@ function treeToList(tree) {
 
   function dfs(data) {
     data.forEach((item) => {
+      const { id, text, parentId } = item;
+
       if (item.children) {
         dfs(item.children);
         delete item.children;
       }
-      ans.push(item);
+      ans.push({ id, text, parentId });
     });
   }
 
