@@ -15,9 +15,11 @@ function hex2rgb(hex) {
     const arr = [];
     for (let i = 1; i < 7; i += 2) {
       arr.push(parseInt(hex.slice(i, i + 2), 16));
+      //   arr.push(parseInt(hex.substr(i, 2), 16));
+      //   arr.push(parseInt(hex.substring(i, i + 2), 16));
     }
-    console.log(`rgb(${arr.join(',')})`);
-    return `rgb(${arr.join(',')})`
+    console.log(`rgb(${arr.join(",")})`);
+    return `rgb(${arr.join(",")})`;
   }
   return hex;
 }
