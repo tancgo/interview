@@ -6,22 +6,20 @@
 function getTotal(arr, target) {
   let count = 0;
   const n = arr.length
-  const track= []
+  const track = []
 
-  function dfs(sum, start, path) {
-    if (start === n) {
-      if (sum === target &&　path.length === 2*n　) {
+  function dfs(sum, index, path) {
+    if (index === n) {
+      if (sum === target) {
         count++;
         track.push(path)
       }
       return
     }
 
-    for (let i = start; i < n; i++) {
-      const cur = arr[i]
-      dfs(sum + cur, i + 1, `${path}+${cur}`)
-      dfs(sum - cur, i + 1, `${path}-${cur}`)
-    }
+    const cur = arr[index]
+    dfs(sum + cur, index + 1, `${path}+${cur}`)
+    dfs(sum - cur, index + 1, `${path}-${cur}`)
   }
 
   dfs(0, 0, '')
@@ -29,4 +27,4 @@ function getTotal(arr, target) {
   return count
 }
 
-getTotal([1,1,1,1,1], 3)
+getTotal([1, 1, 1, 1, 1], 3)
