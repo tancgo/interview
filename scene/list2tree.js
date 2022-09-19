@@ -57,3 +57,28 @@ children: [
 },
 ];
 **/
+
+/**
+ * 递归查找，获取children
+ */
+ const getChildren = (data, result, pid) => {
+  for (const item of data) {
+    if (item.parentKey === pid) {
+      const newItem = {...item, children: []};
+      result.push(newItem);
+      getChildren(data, newItem.children, item.key);
+    }
+  }
+}
+
+/**
+* 转换方法
+*/
+const arrayToTree = (data, pid) => {
+  const result = [];
+  getChildren(data, result, pid)
+  console.log(JSON.stringify(result))
+  return result;
+}
+
+arrayToTree(list, 0);
