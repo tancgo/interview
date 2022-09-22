@@ -3,6 +3,8 @@
  *  @param {(() => Promise<any>)[]} requests 包含所有请求的数组
  *  @returns {Promise<any[]>} 结果数组
  **/
+
+// https://juejin.cn/post/6998194847408472100
 async function concurrentControl(limit, requests) {
   // 存储所有的异步任务
   const res = [];
